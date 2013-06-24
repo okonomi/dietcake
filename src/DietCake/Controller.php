@@ -1,11 +1,14 @@
 <?php
+
+namespace DietCake;
+
 class Controller
 {
     public $name;           // コントローラ名
     public $action;         // アクション名
     public $view;           // ビュー
 
-    public $default_view_class = 'View';     // デフォルトのビュークラス名
+    public $default_view_class = 'DietCake\View';     // デフォルトのビュークラス名
 
     public $output;         // 出力結果
 
@@ -35,7 +38,7 @@ class Controller
                 // アクションがコントローラに存在しないとき
                 throw new DCException('action does not exist');
             }
-            $method = new ReflectionMethod($this, $this->action);
+            $method = new \ReflectionMethod($this, $this->action);
             if (!$method->isPublic()) {
                 // アクションが public メソッドではないとき
                 throw new DCException('action is not public');
@@ -51,7 +54,7 @@ class Controller
     // アクション名の妥当性を検証する
     public static function isAction($action)
     {
-        $methods = get_class_methods('Controller');
+        $methods = get_class_methods('DietCake\Controller');
         return !in_array($action, $methods);
     }
 

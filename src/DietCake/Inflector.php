@@ -1,4 +1,7 @@
 <?php
+
+namespace DietCake;
+
 class Inflector
 {
     public static function camelize($str)
