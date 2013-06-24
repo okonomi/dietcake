@@ -31,7 +31,7 @@ class Controller
         if (!self::isAction($this->action)) {
             // アクション名が予約語などで正しくないとき
             throw new DCException('invalid action name');
-        } 
+        }
 
         if (!method_exists($this, '__call')) {
             if (!method_exists($this, $this->action)) {
