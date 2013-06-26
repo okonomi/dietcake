@@ -8,7 +8,7 @@ class View
     public $vars = array();         // 展開する変数
     public static $ext = '.php';
 
-    public function __construct($controller)
+    public function __construct(Controller $controller)
     {
         $this->controller = $controller;
     }
@@ -35,7 +35,7 @@ class View
         $this->controller->output .= $content;
     }
 
-    public static function extract($filename, $vars)
+    public static function extract($filename, array $vars)
     {
         if (!file_exists($filename)) {
             throw new DCException("{$filename} is not found");
