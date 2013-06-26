@@ -1,7 +1,10 @@
 <?php
-require_once dirname(__FILE__).'/bootstrap.php';
 
-class ModelTest extends PHPUnit_Framework_TestCase
+namespace DietCake;
+
+require_once dirname(__DIR__) . '/bootstrap.php';
+
+class ModelTest extends \PHPUnit_Framework_TestCase
 {
     public function test_set()
     {
@@ -13,7 +16,7 @@ class ModelTest extends PHPUnit_Framework_TestCase
 
     public function test_validate()
     {
-        $player = new Player;
+        $player = new \App\Player;
         $player->name = '';
         $this->assertFalse($player->validate());
         $this->assertTrue($player->hasError());
@@ -36,11 +39,13 @@ class ModelTest extends PHPUnit_Framework_TestCase
     }
 }
 
-class Player extends Model
+namespace App;
+
+class Player extends \DietCake\Model
 {
     public $validation = array(
         'name' => array(
-            'between' => array('validate_between', 3, 16),
+            'between' => array('App\validate_between', 3, 16),
         ),
     );
 }

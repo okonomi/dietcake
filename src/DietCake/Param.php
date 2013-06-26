@@ -1,4 +1,7 @@
 <?php
+
+namespace DietCake;
+
 class Param
 {
     public static function get($name, $default = null)
