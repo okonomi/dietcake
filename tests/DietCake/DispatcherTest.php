@@ -22,7 +22,7 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
 
     public function test_getController()
     {
-        $this->assertTrue(Dispatcher::getController('hello') instanceof \App\HelloController);
+        $this->assertTrue(Dispatcher::getController('hello') instanceof \App\Controller\HelloController);
     }
 
     public function test_getController_02()
@@ -32,7 +32,7 @@ class DispatcherTest extends \PHPUnit_Framework_TestCase
     }
 }
 
-namespace App;
+namespace App\Controller;
 
 class HelloController extends \DietCake\Controller
 {
