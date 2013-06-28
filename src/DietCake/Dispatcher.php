@@ -40,7 +40,7 @@ class Dispatcher
     public static function getController($controller_name)
     {
         $controller_class = 'App\\Controller\\' . Inflector::camelize($controller_name) . 'Controller';
-       
+
         if (!class_exists($controller_class)) {
             throw new DCException("{$controller_class} is not found");
         }
